@@ -108,6 +108,7 @@ The key process patterns that help teams practice Specification by Example are
 * 	Specifying Collaboratively
 * 	Illustraing using examples
 * 	Refining the specifications
+*	Automating validations without changing specifications
 
 ### Deriving Scope From Goals
 
@@ -166,6 +167,16 @@ Further if the specifications are easy to understand and communicate , they can 
 
 
 ### Refining the Specifications 
+
+This activity contains removing extraneous information ( the how part of the specification ) and making the specifications more clear
+
+### Automating validations without changing specifications 
+
+Once the team agrees to specifications those can be used as the target for implementation and a means to validate the product
+
+An automated specification thus becomes an executable specification. It can quickly detect any changes made to the system as well as provide an up to date snapshot of the current system in terms of documentation that everyone in the team ( even non technical members) can understand
+
+
 
 
 
