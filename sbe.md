@@ -102,5 +102,28 @@
 
 ---
 
+### Deriving Scope From Goals
+
+In a development team the business owners specify their requirements and the development teams expects them to provide them
+with concise and clear business requirements
+
+The development team members do not normally participate in any of the process before the requirements are defined and thus 
+miss on a key aspect of the goals of the project 
+
+The development team  entirely relies on the customer team to give them user stories , use cases or other relevant information 
+and thus indirectly rely on the customer team to provide a business solution 
+
+There is an inhererent flaw in this process because the customers do not know to design a solution 
+
+When the customers define the scope entirely the project does not benefit from the knowledge of the development team 
+
+Sucessful dev teams that use Specification by Example do this differently
+
+Instead of just relying on the customers to provide user stories dev teams collaborate with the customers to *derive the scope from goals*
+
+They start with the customers goals and then they collaborate with the customers to derive the scope from the goals 
+
+Customer teams specify intent and goals and the development teams suggest a solution that is faster cheaper and easier to maintain
+
 
 
