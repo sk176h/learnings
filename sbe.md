@@ -2,7 +2,7 @@
 ---
 
 ## Chapter 1: Key Benefits
----
+
 
 ### Scenario and Challenges of Today
 
@@ -85,9 +85,22 @@
 
 ### Highier product quality
 
+  
+### Less time rework 
 
+* Teams implementing Specification by Example generally get it correct in the first attempt
 
+* They are at less risk of discovering at the end of iteration that they build something that was not expected
 
+* Less danger of polluting the code base 
+
+* Using specification by example to make requirements more precise at the start of development cycle make it easier to manage product backlogs
+
+---
+
+## Chapter 2 : Key Process Patterns
+
+---
 
 
 
