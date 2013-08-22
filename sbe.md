@@ -1,7 +1,7 @@
 # Specification By Example - Notes
 ---
 
-## Chapter 1: Key Benefits
+##	Key Benefits of using Specification By Example
 
 
 ### Scenario and Challenges of Today
@@ -98,9 +98,16 @@
 
 ---
 
-## Chapter 2 : Key Process Patterns
+##  Key Process Patterns to Implementing Specification by Example
 
 ---
+
+The key process patterns that help teams practice Specification by Example are 
+
+* 	Deriving Scope From Goals
+* 	Specifying Collaboratively
+* 	Illustraing using examples
+* 	Refining the specifications
 
 ### Deriving Scope From Goals
 
@@ -124,6 +131,47 @@ Instead of just relying on the customers to provide user stories dev teams colla
 They start with the customers goals and then they collaborate with the customers to derive the scope from the goals 
 
 Customer teams specify intent and goals and the development teams suggest a solution that is faster cheaper and easier to maintain
+
+### Specifying Collaboratively
+
+Communication is one of the most difficult things in the software development process.
+
+If developers and testers are not engaged in designing specific solutions for the business the requirements or user stories 
+have to be communicated separately to the team. 
+
+This leads to miscommunication , details getting lost in translation. As a consequence business users have to validate the software after delivery and teams have to go back and change if validations fail 
+
+The process benefits from people coming from different backgrounds. 
+e.g.
+
+* Technical experts can discuss how to best implemnent the solution effectively 
+
+* Testers know where to look for potential issues and how the team should work to prevent those issues 
+
+Specifying collaboratively enables us to harness the knowledge and experience of the whole team. It creates collective ownership of specifications
+
+### Illustraing using examples
+
+Natural language is ambiguous and context dependent and efforts have to be made by developers and testers to understand requirements or user stories written in natural language 
+
+Small differences in understanding requirements have a cumulative effect leading to problems that require rework after delivery which leads to unnecessary delays 
+
+Instead of waiting for specifications to be expressed in terms of programming language , which only the developers understand successful teams *illustrate specifications using examples* 
+
+Developers and testers help define these examples and suggest additonal examples that illustrate the edge cases and address the areas of the system that are particularly problematic 
+
+If the system works as per the specifications then it is considered to be done 
+
+Further if the specifications are easy to understand and communicate , they can be effectively used as unambiguous and detailed requirements
+
+
+### Refining the Specifications 
+
+
+
+
+
+
 
 
 
