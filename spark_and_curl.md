@@ -28,7 +28,7 @@ I set up a simple maven project and added these dependencies for spark
     </dependency>
 ```
 
-then this is the example that I copied and modified from the google code page
+This is the example that I copied and modified from the google code page
 
 ```java
 package com.sk176h.rest.spark;
@@ -52,3 +52,10 @@ public class App
 
 }
 ```
+
+`get` comes from the static import from Sinatra and takes a Route object as a parameter
+
+We then define a nested innerclass which extends Route and override the handle method which accepts `Request` and `Response` object as parameters 
+
+In this simple example we just return the string Hello World 
+
