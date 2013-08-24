@@ -67,3 +67,15 @@ This is what you will see in your eclipse when your application runs
 
 ![Run as java application](images/curlandsinatra/2.png)
 
+This is exactly how sinatra works. You write a simple code and execute it and you have a web application running
+
+In this trial we have finally managed to get the ***spark ignited***
+
+##	Testing our simple web application using curl 
+
+* 	Make sure you have curl installed on your machine.  On your Ubuntu/Mint box you can simply say `sudo apt-get install curl` 
+
+*	Fire up your terminal and type the command `curl http://localhost:4567/hello`  and you should get `"Hello World!"` in your output 
+like this
+
+![Curl output](images/curlandsinatra/3.png)
