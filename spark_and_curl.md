@@ -14,6 +14,8 @@
 
 ##	Trying the spark hello world application from google code 
 
+I am going to try the code that is hosted on google 
+
 ### Setting up a maven project
 
 I set up a simple maven project and added these dependencies for spark
@@ -26,3 +28,27 @@ I set up a simple maven project and added these dependencies for spark
     </dependency>
 ```
 
+then this is the example that I copied and modified from the google code page
+
+```java
+package com.sk176h.rest.spark;
+import static spark.Spark.get;
+import spark.Request;
+import spark.Response;
+import spark.Route;
+
+public class App 
+{
+	public static void main(String[] args) {
+	      
+	      get(new Route("/hello") {
+	         @Override
+	         public Object handle(Request request, Response response) {
+	            return "Hello World!";
+	         }
+	      });
+
+	   }
+
+}
+```
