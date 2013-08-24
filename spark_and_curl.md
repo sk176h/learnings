@@ -18,7 +18,7 @@ I am going to try the code that is hosted on google
 
 ### Setting up a maven project
 
-I set up a simple maven project and added these dependencies for spark
+I use eclipse as my ide and set up a simple maven project and added these dependencies for spark
 
 ```xml
     <dependency>
@@ -58,4 +58,12 @@ public class App
 We then define a nested innerclass which extends Route and override the handle method which accepts `Request` and `Response` object as parameters 
 
 In this simple example we just return the string Hello World 
+
+Run this example by right clicking on your eclipse and running it as a **java application**  there is no complex xml setup or server setup needed to run this simple application unlike most other java frameworks 
+
+![Run as java application](images/curlandsinatra/1.png)
+
+This is what you will see in your eclipse when your application runs 
+
+![Run as java application](images/curlandsinatra/2.png)
 
