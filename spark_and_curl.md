@@ -1,12 +1,12 @@
-# Learning Spark and Curl 
+#	Learning Spark and Curl 
 
-## What is spark
+##	What is spark
 
 *	Spark is a framework for creating web applications in java 
 
 *	Lightweight and inspired by Ruby Sinatra
 
-## What is Curl
+##	What is Curl
 
 *	Utility in *nix operating systems to interact with web services
 
@@ -16,7 +16,7 @@
 
 I am going to try the code that is hosted on google 
 
-### Setting up a maven project
+###	Setting up a maven project
 
 I use eclipse as my ide and set up a simple maven project and added these dependencies for spark
 
@@ -37,8 +37,8 @@ import spark.Request;
 import spark.Response;
 import spark.Route;
 
-public class App 
-{
+public class App{
+
 	public static void main(String[] args) {
 	      
 	      get(new Route("/hello") {
@@ -79,3 +79,147 @@ In this trial we have finally managed to get the ***spark ignited***
 like this
 
 ![Curl output](images/curlandsinatra/3.png)
+
+##	Playing with parameters
+
+Now that we have got our basic skeleton for our webapp set lets explore some more.
+
+Lets add a url parameter to our hello world application so that it takes the name of a user and greets the user. The modified code
+looks like this 
+
+```java
+public class App {
+	public static void main(String[] args){
+
+		get(new Route("/hello/:name"){
+			@Override
+			public Object handle(Request request, Response response) {
+				return String.format("Hello %s!!! How have you been \n",
+						request.params("name"));
+			}
+		});
+
+	}
+}
+```
+
+We can now test out application by restarting it and issuing a curl request like this : `curl http://localhost:4567/hello/sk176h` 
+and this is how our output looks like 
+
+![Output with parameters](images/curlandsinatra/4.png)
+
+Spark also allows us to specify wildcarded parameters which can be accessed as an array by calling the `.splat()` method 
+
+```java
+get(new Route("/say/*/to/*"){
+	@Override
+	public Object handle(Request request, Response response) {				
+		String str = String.format("Your first parameter was %s",request.splat()[0]);
+		str += String.format("\nYour second parameter was %s",request.splat()[1]);
+		return str;
+	}			
+});
+```
+
+`curl http://localhost:4567/say/hello/to/world` presents this output
+
+```
+Your first parameter was hello
+Your second parameter was world
+```
+
+Query params passed to the url can be accessed using the `.queryParams()` method of the request object
+
+```java
+get(new Route("/sayhelloto"){
+	@Override
+	public Object handle(Request request, Response response) {				
+		return "hello  " + request.queryParams("name");
+	}
+});		
+```
+##	Trying other REST operations
+
+The other rest operations are excatly similar to get in Spark. Just substitute the `get` with `post` , `put` and `delete`
+
+```java
+public class App {
+	public static void main(String[] args) {
+				
+		get(new Route("/hello") {			
+			@Override
+			public Object handle(Request request, Response response) {
+				return "you did a get operation on /hello";
+			}
+		});		
+		
+		post(new Route("/hello") {			
+			@Override
+			public Object handle(Request request, Response response) {
+				return "you did a post operation on /hello";
+			}
+		});
+		
+		
+		put(new Route("/hello") {			
+			@Override
+			public Object handle(Request request, Response response) {
+				return "you did a put operation on /hello";
+			}
+		});
+		
+		delete(new Route("/hello") {			
+			@Override
+			public Object handle(Request request, Response response) {
+				return "you did a delete operation on /hello";
+			}
+		});		
+	}
+}
+```
+
+##	Issuing other REST commands with Curl 
+
+`GET` is the default operation when we run curl as `curl http://someurl:port/somepath` 
+
+To specify a different operation use the -X switch or --request switch with curl and specify one of the operation 
+`GET` , `POST` , `PUT` or `DELETE`
+
+Here is the output with the -X switch 
+
+![curl output with -X](images/curlandsinatra/7.png)
+
+Here is the output with the --request switch
+
+![curl output with -X](images/curlandsinatra/8.png)
+
+##	Accessing data in a Spark application 
+
+We have gone through creating resources for each of the operations but none of them accept any data. In regular REST services a payload
+is associated with PUT and POST operations 
+
+Data sent to these operations can be accessed as a String by the `.body()` method of the `Request` object
+
+Here is the modified code that accesses the data sent as a payload 
+
+
+```java
+	put(new Route("/hello") {			
+		@Override
+		public Object handle(Request request, Response response) {				
+			return "you did a put operation on /hello" + 
+			" with data " + request.body() + "\n" ;
+		}
+	});
+
+	delete(new Route("/hello") {			
+		@Override
+		public Object handle(Request request, Response response) {
+			return "you did a delete operation on /hello";
+		}
+	});		
+
+```
+
+##	Sending data to REST services using Curl 
+
