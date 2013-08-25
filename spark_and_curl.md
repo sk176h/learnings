@@ -1,16 +1,16 @@
-#	Learning Spark and Curl 
+#	Playing with REST , Spark and curl
 
-##	What is spark
+##	What is Spark?
 
 *	Spark is a framework for creating web applications in java 
 
 *	Lightweight and inspired by Ruby Sinatra
 
-##	What is Curl
+##	What is curl?
 
-*	Utility in *nix operating systems to interact with web services
+*	An extremely useful utility in *nix operating systems to interact with a lot of things on web
 
-* 	Important tool in a testers kitty to test web services
+* 	Important tool in a testers kitty to test rest services among other things
 
 ##	Trying the spark hello world application from google code 
 
@@ -60,7 +60,6 @@ We then define a nested innerclass which extends Route and override the handle m
 In this simple example we just return the string Hello World 
 
 Run this example by right clicking on your eclipse and running it as a **java application**  there is no complex xml setup or server setup needed to run this simple application unlike most other java frameworks 
-
 ![Run as java application](images/curlandsinatra/1.png)
 
 This is what you will see in your eclipse when your application runs 
@@ -78,7 +77,7 @@ In this trial we have finally managed to get the ***spark ignited***
 *	Fire up your terminal and type the command `curl http://localhost:4567/hello`  and you should get `"Hello World!"` in your output 
 like this
 
-![Curl output](images/curlandsinatra/3.png)
+![curl output](images/curlandsinatra/3.png)
 
 ##	Playing with parameters
 
@@ -178,7 +177,7 @@ public class App {
 }
 ```
 
-##	Issuing other REST commands with Curl 
+##	Issuing other REST commands with curl 
 
 `GET` is the default operation when we run curl as `curl http://someurl:port/somepath` 
 
@@ -212,14 +211,46 @@ Here is the modified code that accesses the data sent as a payload
 		}
 	});
 
-	delete(new Route("/hello") {			
+	post(new Route("/hello") {			
 		@Override
 		public Object handle(Request request, Response response) {
-			return "you did a delete operation on /hello";
+			return "you did a post operation on /hello" + 
+					" with data " + request.body() + "\n" ;
 		}
-	});		
+	});
 
 ```
 
-##	Sending data to REST services using Curl 
+##	Sending data to REST services using curl 
+
+Use the --data switch to send data to curl. Lets test sending data to our application with the modified code
+
+![curl sending data with --data](images/curlandsinatra/9.png)
+
+##	Setting response codes in Spark
+
+REST has a set of predefined response codes that you want to set to provide meaningful metadat about the status of operation
+
+e.g. 200 is used if the GET operation is successful while 404 denotes that the resource that was being requested does not exist
+
+A response code can be set by using the `.status` method of the `Response` object. Example shown below 
+
+```java
+post(new Route("/hello") {			
+	@Override
+	public Object handle(Request request, Response response) {				
+		response.status(201);
+		return "you did a post operation on /hello" + 
+				" with data " + request.body() + "\n" ;
+	}
+});
+```
+
+##	Getting curl to display response codes
+
+Use the `-v` flag in curl to display the request and response data which contains the status code returned by the server
+
+use the `-i` flag in curl to display the response data which contains the status code returned by the server
+
+![curl sending data with --data](images/curlandsinatra/10.png)
 
